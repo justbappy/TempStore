@@ -1,12 +1,11 @@
-# React + Vite
+# TempStore
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my project based on E-Commerce which has similar functionalities as other e-commerce websites.
 
-Currently, two official plugins are available:
+Packages used:
+1. react-router-dom
+2. react-icons
+3. axios
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Currently, Home Page is completed and there are more to come, this is still in building phase.
+Don't copy repository.
