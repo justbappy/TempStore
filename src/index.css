@@ -1,0 +1,86 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.product-card-heading{
+  white-space: nowrap;       /* Prevent text from wrapping */
+  overflow: hidden;          /* Hide overflowing text */
+  text-overflow: ellipsis;   /* Add "..." at the end */
+  width: 200px;              /* Set a fixed width */
+  display: block;
+  /* border: 1px solid #ccc;    Just for visualization */
+}
+
+.product-card-description{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;     /* Number of lines before "..." */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.nav-link{
+  text-transform: capitalize;
+  font-size: 18px;
+  font-weight: 500;
+}
+.nav-link::after{
+  content: '';
+  display: flex;
+  flex-direction: column;
+  height: 2px;
+  background-color: black;
+  width: 0%;
+  transition: all 0.3s;
+}
+.nav-link:hover::after{
+  width: 100%;
+  transition: all 0.3s;
+}
+/* .active-link{
+  color: rgb(92, 92, 92);
+} */
+.active-link::after{
+  content: '';
+  display: flex;
+  flex-direction: column;
+  height: 2px;
+  background-color: black;
+  width: 100%;
+  transition: all 0.3s;
+}
+@media (max-width:768px) {
+
+  .mobile-nav{
+    position: absolute;
+    top: 0;
+    background-color: rgb(103, 103, 103);
+    left: -300px;
+    height: 100%;
+    padding: 50px 30px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    transition: all 0.3s;
+  }
+
+  .nav-link::after{
+  content: '';
+  display: flex;
+  flex-direction: column;
+  height: 2px;
+  background-color: black;
+  width: 0%;
+  transition: all 0.3s;
+  }
+  .nav-link:hover::after{
+    width: 0%;
+    transition: all 0.3s;
+  }
+
+  .active-link{
+    color: white;
+  }
+}
