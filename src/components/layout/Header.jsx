@@ -20,7 +20,7 @@ export const Header = () => {
 
     return (
     <header
-    className="flex justify-between items-center py-4 px-6 bg-[#F5F5F5]"
+    className="flex justify-between items-center py-4 px-6 bg-[#F5F5F5] sticky top-0 z-10"
     >
         <GiHamburgerMenu 
         className="md:hidden text-[30px]"
