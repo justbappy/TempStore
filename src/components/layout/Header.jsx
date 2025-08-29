@@ -10,6 +10,14 @@ export const Header = () => {
 
     const [openNav, setOpenNav] = useState(false);
 
+    if(openNav === true){
+        document.body.style.overflow = "hidden";
+    }else{
+        document.body.style.overflow = "visible";
+    }
+
+    // console.log(openNav);
+
     return (
     <header
     className="flex justify-between items-center py-4 px-6 bg-[#F5F5F5]"

@@ -3,16 +3,16 @@
 export const ProductCover = ({ productData }) => {
     return (
         <li
-        className="bg-[#C5C5C5] flex flex-col gap-3 items-center justify-center py-4 px-3 hover:cursor-pointer transform hover:scale-[1.05] transition-all duration-200"
+        className="bg-[#C5C5C5] flex sm:flex-col gap-3 items-center justify-center py-4 px-3 hover:cursor-pointer transform hover:scale-[1.05] transition-all duration-200"
         >
-           <div>
+           <div className="sm:w-[100%] w-[30%]">
                 <img 
                 src={productData.thumbnail}
                 alt={productData.title}
                 />
            </div>
            <div
-           className="flex flex-col gap-1"
+           className="flex flex-col gap-2 sm:w-[100%] w-[70%]"
            >
                 <div className="">
                     <h1
@@ -34,14 +34,15 @@ export const ProductCover = ({ productData }) => {
                     className="text-[20px] bg-green-500 px-2 py-1 rounded-xl"
                     >40% off</p>
                 </div>
+                <div className="flex justify-center">
+                    <button
+                    className="bg-black text-white py-2 px-5 hover:rounded-xl transition-all duration-300"
+                    >
+                        Add to Cart
+                    </button>
+                </div>
            </div>
-           <div>
-                <button
-                className="bg-black text-white py-2 px-5 hover:rounded-xl transition-all duration-300"
-                >
-                    Add to Cart
-                </button>
-           </div>
+           
         </li>
     )
 }

@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import { Hero } from "../components/layout/Hero";
-import { HomeProducts } from "../components/layout/HomeProducts";
+import { ProductsWrapper } from "../components/layout/ProductsWrapper";
+import { ProductsHeading } from "../components/UI/ProductsHeading";
 
 const Home = () => {
 
@@ -8,12 +9,13 @@ const Home = () => {
 
     const productsData = useLoaderData();
 
-    console.log(productsData);
+    // console.log(productsData);
 
     return (
     <>
         <Hero/>
-        <HomeProducts productsData={productsData}/>
+        <ProductsHeading heading={"Explore Top Products"}/>
+        <ProductsWrapper productsData={productsData}/>
     </> 
     )
 }

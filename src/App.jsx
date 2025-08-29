@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import ErrorPage from './pages/ErrorPage'
 import { AppLayout } from './components/layout/AppLayout'
 import { fetchGetProducts } from './services/fetchGetProducts'
+import { fetchCustomerReviews } from './services/fetchCustomerReview'
 
 function App() {
 
@@ -28,7 +29,9 @@ function App() {
         },
         {
           path: '/about',
-          element: <About/>
+          element: <About/>,
+          loader: fetchCustomerReviews,
+          hydrateFallbackElement: <h1>Loading...</h1>
         },
         {
           path: '/contact',
