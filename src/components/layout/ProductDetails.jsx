@@ -47,6 +47,21 @@ export const ProductDetails = ({ productDetails }) => {
                 <p>Price: <span className="font-bold">{price}$</span></p>
                 <p>Rating: <span className="font-bold">{rating}</span></p>
             </div>
+            <div
+            className="text-[20px] flex justify-center sm:justify-start gap-3 items-center"
+            >
+                <button
+                className="bg-black text-white py-2 px-5 hover:rounded-xl transition-all duration-300"
+                >
+                    Buy Now
+                </button>
+                <button
+                className="bg-black text-white py-2 px-5 hover:rounded-xl transition-all duration-300"
+                >
+                    Add to Cart
+                </button>
+                
+            </div>
         </div>
     </div>
     <div>

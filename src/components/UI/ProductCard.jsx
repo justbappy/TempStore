@@ -2,33 +2,46 @@ import { NavLink } from "react-router-dom"
 
 
 export const ProductCover = ({ productData }) => {
+
+    function addToCart(){ 
+    }
+
     return (
-        <NavLink
-        to={`/${productData.id}`}
-        >
-        <li
-        className="bg-[#C5C5C5] flex sm:flex-col gap-3 items-center justify-center py-4 px-3 hover:cursor-pointer transform hover:scale-[1.05] transition-all duration-200"
-        >
         
+        <li
+        className="bg-[#C5C5C5] flex sm:flex-col gap-3 items-center justify-center py-4 px-3 transform hover:scale-[1.05] transition-all duration-200"
+        >
            <div className="sm:w-[100%] w-[40%]">
+            <NavLink
+            to={`/${productData.id}`}
+            >
                 <img 
                 src={productData.thumbnail}
                 alt={productData.title}
                 />
+            </NavLink>
            </div>
            <div
            className="flex flex-col gap-2 sm:w-[100%] w-[60%]"
            >
                 <div className="">
-                    <h1
-                    className="product-card-heading text-[20px] text-center font-bold"
+                    <NavLink
+                    to={`/${productData.id}`}
                     >
-                        {productData.title}
-                    </h1>
+                        <h1
+                        className="product-card-heading text-[20px] text-center font-bold hover:underline"
+                        >
+                            {productData.title}
+                        </h1>
+                    </NavLink>
                 </div>
-                <p
-                className="product-card-description text-[17px]"
-                >{productData.description}</p>
+                <NavLink
+                to={`/${productData.id}`}
+                >
+                    <p
+                    className="product-card-description text-[17px] hover:underline"
+                    >{productData.description}</p>
+                </NavLink>
                 <div
                 className="flex justify-between items-center"
                 >
@@ -42,12 +55,13 @@ export const ProductCover = ({ productData }) => {
                 <div className="flex justify-center">
                     <button
                     className="bg-black text-white py-2 px-5 hover:rounded-xl transition-all duration-300"
+                    id="addToCart"
+                    onClick={()=>addToCart()}
                     >
                         Add to Cart
                     </button>
                 </div>
            </div>
         </li>
-        </NavLink>   
     )
 }
