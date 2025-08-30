@@ -36,9 +36,12 @@ export const Footer = () => {
             </p>
             <NavLink
             className={"text-yellow-500 text-[18px] underline"}
+            to={"/about"}
             >
                 Read More
             </NavLink>
+
+            <p>copyright - contact @mr.justbappy@gmail.com or follow justbappy github before using this project</p>
         </div>
         <div>
             <ul

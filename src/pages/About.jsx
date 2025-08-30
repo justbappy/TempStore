@@ -3,6 +3,9 @@ import { CustomerReviews } from "../components/layout/CustomerReviews";
 import { TagHero } from "../components/layout/TagHero";
 
 const About = () => {
+
+    document.title = "TEMPSTORE - About"
+
     return (
     <section>
         <AboutHero/>

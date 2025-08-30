@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, useParams } from 'react-router-dom'
 import './App.css'
 import Products from './pages/Products'
 import About from './pages/About'
@@ -8,6 +8,8 @@ import ErrorPage from './pages/ErrorPage'
 import { AppLayout } from './components/layout/AppLayout'
 import { fetchGetProducts } from './services/fetchGetProducts'
 import { fetchCustomerReviews } from './services/fetchCustomerReview'
+import { Product } from './pages/Product'
+import { getProductDetails } from './services/api/ApiWork'
 
 function App() {
 
@@ -26,6 +28,12 @@ function App() {
         {
           path: '/products',
           element: <Products/>
+        },
+        {
+          path: '/:id',
+          element: <Product/>,
+          loader: getProductDetails,
+          hydrateFallbackElement: <h1>Loading...</h1>
         },
         {
           path: '/about',

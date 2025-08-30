@@ -1,18 +1,23 @@
+import { NavLink } from "react-router-dom"
 
 
 export const ProductCover = ({ productData }) => {
     return (
+        <NavLink
+        to={`/${productData.id}`}
+        >
         <li
         className="bg-[#C5C5C5] flex sm:flex-col gap-3 items-center justify-center py-4 px-3 hover:cursor-pointer transform hover:scale-[1.05] transition-all duration-200"
         >
-           <div className="sm:w-[100%] w-[30%]">
+        
+           <div className="sm:w-[100%] w-[40%]">
                 <img 
                 src={productData.thumbnail}
                 alt={productData.title}
                 />
            </div>
            <div
-           className="flex flex-col gap-2 sm:w-[100%] w-[70%]"
+           className="flex flex-col gap-2 sm:w-[100%] w-[60%]"
            >
                 <div className="">
                     <h1
@@ -32,7 +37,7 @@ export const ProductCover = ({ productData }) => {
                     >{productData.price}$</p>
                     <p
                     className="text-[20px] bg-green-500 px-2 py-1 rounded-xl"
-                    >40% off</p>
+                    >{Math.floor(productData.discountPercentage)}% off</p>
                 </div>
                 <div className="flex justify-center">
                     <button
@@ -42,7 +47,7 @@ export const ProductCover = ({ productData }) => {
                     </button>
                 </div>
            </div>
-           
         </li>
+        </NavLink>   
     )
 }

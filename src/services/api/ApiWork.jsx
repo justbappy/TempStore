@@ -18,3 +18,9 @@ export const getLimitProducts = (limit, skip) => {
 export const getUsers = () => {
     return api.get(`/users?limit=12`);
 }
+
+// fetch single product details
+export const getProductDetails = ({params}) => {
+    const id = params.id;
+    return api.get(`/products/${id}`);
+}

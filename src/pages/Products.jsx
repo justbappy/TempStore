@@ -10,19 +10,33 @@ const Products = () => {
 
     const [data, setData] = useState([]);
     const [count, setCount] = useState(0);
+    const [loading, setLoading] = useState(false);
 
     async function getLimitedProducts(){
         try{
+            setLoading(true);
             const res = await getLimitProducts(20,20*count);
-            setData((prev) => [...prev, ...res.data.products]);
+            if(res && res.data){
+                setData((prev) => [...prev, ...res.data.products]);
+                setLoading(false);
+            }
         }catch(error){
             console.log(error);
+            setLoading(false);
         }
     }
 
     useEffect(()=>{
         getLimitedProducts();
     },[count])
+
+    if(loading){
+        return <h1 
+        className="h-dvh flex justify-center items-center text-[30px]"
+        >
+            Loading....
+        </h1>
+    }
 
     // console.log(data);
     // console.log(count);
@@ -35,7 +49,7 @@ const Products = () => {
         className="flex justify-center mb-6"
         >
             <button
-            className="bg-black text-white py-2 px-6 text-[18px]"
+            className="bg-black text-white py-2 px-6 text-[18px] transition-all duration-200 hover:rounded-xl"            
             onClick={()=>setCount(count+1)}
             >
                 Load More

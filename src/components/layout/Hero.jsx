@@ -22,7 +22,7 @@ export const Hero = () => {
                 <button
                 className="bg-black py-2 px-6 text-white text-[18px] hover:rounded-xl hover:transition-all duration-300"
                 >
-                    <NavLink>
+                    <NavLink to={"/products"}>
                         Shop Now
                     </NavLink>
                 </button>
