@@ -10,6 +10,7 @@ import { fetchGetProducts } from './services/fetchGetProducts'
 import { fetchCustomerReviews } from './services/fetchCustomerReview'
 import { Product } from './pages/Product'
 import { getProductDetails } from './services/api/ApiWork'
+import Cart from './pages/Cart'
 
 function App() {
 
@@ -44,6 +45,10 @@ function App() {
         {
           path: '/contact',
           element: <Contact/>
+        },
+        {
+          path: '/cart',
+          element: <Cart/>
         },
       ]
     }

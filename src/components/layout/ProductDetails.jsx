@@ -4,10 +4,10 @@ import { CustomerReviews } from "./CustomerReviews";
 
 export const ProductDetails = ({ productDetails }) => {
 
-    console.log(productDetails);
+    // console.log(productDetails);
 
     const {
-        id, thumbnail, title, description, availabilityStatus, reviews, price, rating, warrantyInformation
+        thumbnail, title, description, availabilityStatus, reviews, price, rating, warrantyInformation
     } = productDetails;
 
     return (
@@ -70,8 +70,8 @@ export const ProductDetails = ({ productDetails }) => {
        className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 py-6 px-3"
        >
         {
-            reviews && reviews.map((curReview) => {
-                return <ProductReviewCard curReview={curReview}/>
+            reviews && reviews.map((curReview, index) => {
+                return <ProductReviewCard key={index} curReview={curReview}/>
             })
         }
        </ul>

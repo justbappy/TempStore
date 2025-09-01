@@ -3,7 +3,6 @@ import { ProductsWrapper } from "../components/layout/ProductsWrapper";
 import { ProductsHeading } from "../components/UI/ProductsHeading";
 import { getLimitProducts } from "../services/api/ApiWork";
 
-
 const Products = () => {
 
     document.title = "TEMPSTORE - Products";
@@ -43,6 +42,7 @@ const Products = () => {
 
     return (
     <section>
+        
         <ProductsHeading heading={"Explore our products"}/>
         <ProductsWrapper productsData={data} />
         <div

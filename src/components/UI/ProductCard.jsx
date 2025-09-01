@@ -1,10 +1,17 @@
+import { useContext, useEffect } from "react"
 import { NavLink } from "react-router-dom"
+import { CartContext } from "../../context/cartContext"
 
 
 export const ProductCover = ({ productData }) => {
 
-    function addToCart(){ 
-    }
+    const { addToCart } = useContext(CartContext);
+
+    // console.log(cartData);
+
+    // useEffect(() => {
+    //     getCartProducts();
+    // },[]);
 
     return (
         
@@ -56,11 +63,11 @@ export const ProductCover = ({ productData }) => {
                     <button
                     className="bg-black text-white py-2 px-5 hover:rounded-xl transition-all duration-300"
                     id="addToCart"
-                    onClick={()=>addToCart()}
+                    onClick={()=>addToCart(productData)}
                     >
                         Add to Cart
                     </button>
-                </div>
+                    </div>
            </div>
         </li>
     )
