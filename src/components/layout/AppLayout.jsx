@@ -3,6 +3,7 @@ import { Header } from "./Header"
 import { Footer } from "./Footer"
 import { OfferTag } from "../UI/OfferTag"
 import { Loading } from "./Loading"
+import { ToastContainer } from "react-toastify"
 
 export const AppLayout = () => {
 
@@ -18,6 +19,13 @@ export const AppLayout = () => {
     <>
         <Header/>
         <OfferTag offer={offer}/>
+        <ToastContainer
+        position="bottom-right"
+        autoClose={1000}
+        pauseOnFocusLoss={false}
+        pauseOnHover={false}
+        theme="dark"
+        />
         <Outlet/>
         <Footer/>
     </>

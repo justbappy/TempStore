@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-
+import { toast } from "react-toastify";
 
 export const CartContext = createContext();
 
@@ -8,14 +8,30 @@ export const CartProvider = ({ children }) => {
     const getLocalCartData = JSON.parse(localStorage.getItem("TempStore - Cart Items")) || [];
 
     const [cartData, setCartData] = useState(getLocalCartData);
-    // const [cartPopUp, setCartPopUp] = useState(null);
+    
+    const addToCart = (addToCartProduct) => {
+        // setCartData((prev) => {
+        //     return prev.includes(addToCartProduct)?
+        //     [...prev]
+        //     :[addToCartProduct, ...prev]
+        // });
+        setCartData((prev) => {
+            return prev.length===0?
+            [addToCartProduct, ...prev]
+            :[addToCartProduct, ...(prev.filter((data) => data.title!==addToCartProduct.title))]
+        });
+    }
 
-    const addToCart = (addToCartProduct) => { 
-        setCartData((prev) => [...prev, addToCartProduct]);
-        setCartPopUp("Added to cart");
-        // if(cartData){
-        //     console.log(cartData);
-        // }
+    const removeFromCart = (removeCartProduct) => {
+        setCartData((prev) => {
+            return prev.filter((curData) => curData!==removeCartProduct);
+        })
+        // console.log(cartData.filter((curData) => curData!=removeCartProduct));
+    }
+
+    function setToastText(getToast){
+        return toast(getToast);
+        // console.log(getToast);
     }
 
     function setAllCartItems(){
@@ -26,7 +42,7 @@ export const CartProvider = ({ children }) => {
         setAllCartItems();
     },[cartData]);
 
-    return <CartContext.Provider value={{addToCart, cartData}}>
+    return <CartContext.Provider value={{addToCart, cartData, removeFromCart, setToastText}}>
         { children }
     </CartContext.Provider>
 }

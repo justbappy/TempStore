@@ -42,7 +42,6 @@ const Products = () => {
 
     return (
     <section>
-        
         <ProductsHeading heading={"Explore our products"}/>
         <ProductsWrapper productsData={data} />
         <div

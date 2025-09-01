@@ -1,6 +1,7 @@
+import { useContext } from "react";
 import { ProductReviewCard } from "../UI/ProductReviewCard";
 import { ProductsHeading } from "../UI/ProductsHeading";
-import { CustomerReviews } from "./CustomerReviews";
+import { CartContext } from "../../context/CartContext";
 
 export const ProductDetails = ({ productDetails }) => {
 
@@ -9,6 +10,11 @@ export const ProductDetails = ({ productDetails }) => {
     const {
         thumbnail, title, description, availabilityStatus, reviews, price, rating, warrantyInformation
     } = productDetails;
+
+    const { addToCart, cartData, removeFromCart, setToastText } = useContext(CartContext);
+
+    // const localData = JSON.parse(localStorage.getItem("TempStore - Cart Items"));
+    // console.log(localData);
 
     return (
     <section>
@@ -55,11 +61,29 @@ export const ProductDetails = ({ productDetails }) => {
                 >
                     Buy Now
                 </button>
-                <button
-                className="bg-black text-white py-2 px-5 hover:rounded-xl transition-all duration-300"
-                >
-                    Add to Cart
-                </button>
+                {
+                    cartData.includes(productDetails) ? 
+                    <button
+                    className="bg-black text-white py-2 px-5 hover:rounded-xl transition-all duration-300"
+                    id="addToCart"
+                    onClick={()=>{
+                        removeFromCart(productDetails)
+                        setToastText("Removed From Cart")
+                    }}
+                    >
+                        Remove from cart
+                    </button>
+                    : <button
+                    className="bg-black text-white py-2 px-5 hover:rounded-xl transition-all duration-300"
+                    id="addToCart"
+                    onClick={()=>{
+                        addToCart(productDetails)
+                        setToastText("Added to Cart")
+                    }}
+                    >
+                        Add to Cart
+                    </button>
+                }
                 
             </div>
         </div>

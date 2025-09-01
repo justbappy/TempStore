@@ -30,8 +30,8 @@ const Cart = () => {
                 className="grid xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-6 my-6 px-6"
                 >
                     {
-                        cartData.map((curProduct) => {
-                            return <ProductCover key={curProduct.id} productData={curProduct}/>
+                        cartData.map((curProduct,index) => {
+                            return <ProductCover key={index} productData={curProduct}/>
                         })   
                     }
                 </ul> :

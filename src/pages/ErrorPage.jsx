@@ -4,11 +4,7 @@ const ErrorPage = () => {
     document.title = "TEMPSTORE"
 
     return (
-        <h1> 
-            {
-                error.message
-            }
-        </h1>
+        <h1>Something went wrong! Please try again</h1>
     )
 }
 

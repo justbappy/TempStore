@@ -5,7 +5,7 @@ import { CartContext } from "../../context/CartContext.jsx"
 
 export const ProductCover = ({ productData }) => {
 
-    const { addToCart } = useContext(CartContext);
+    const { addToCart, cartData, removeFromCart, setToastText } = useContext(CartContext);
 
     // console.log(cartData);
 
@@ -13,8 +13,9 @@ export const ProductCover = ({ productData }) => {
     //     getCartProducts();
     // },[]);
 
-    return (
-        
+    // console.log(cartData.includes(productData));
+
+    return ( 
         <li
         className="bg-[#C5C5C5] flex sm:flex-col gap-3 items-center justify-center py-4 px-3 transform hover:scale-[1.05] transition-all duration-200"
         >
@@ -60,13 +61,37 @@ export const ProductCover = ({ productData }) => {
                     >{Math.floor(productData.discountPercentage)}% off</p>
                 </div>
                 <div className="flex justify-center">
-                    <button
+                    {/* <button
                     className="bg-black text-white py-2 px-5 hover:rounded-xl transition-all duration-300"
                     id="addToCart"
                     onClick={()=>addToCart(productData)}
                     >
                         Add to Cart
-                    </button>
+                    </button> */}
+                    {
+                        cartData.includes(productData) ? 
+                       <button
+                        className="bg-black text-white py-2 px-5 hover:rounded-xl transition-all duration-300"
+                        id="addToCart"
+                        onClick={()=>{
+                            removeFromCart(productData)
+                            setToastText("Removed From Cart")
+                        }}
+                        >
+                            Remove from cart
+                        </button>
+                        : <button
+                        className="bg-black text-white py-2 px-5 hover:rounded-xl transition-all duration-300"
+                        id="addToCart"
+                        onClick={()=>{
+                            addToCart(productData)
+                            setToastText("Added to Cart")
+                        }}
+                        
+                        >
+                            Add to Cart
+                        </button>
+                    }
                     </div>
            </div>
         </li>
