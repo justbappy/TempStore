@@ -8,7 +8,7 @@ const Cart = () => {
 
     // console.log(allCartData);
     // console.log(cartData);
-    console.log(JSON.parse(localStorage.getItem("TempStore - Cart Items")));
+    // console.log(JSON.parse(localStorage.getItem("TempStore - Cart Items")));
 
     return (
     <section>
