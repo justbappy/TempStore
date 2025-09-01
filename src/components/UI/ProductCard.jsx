@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react"
 import { NavLink } from "react-router-dom"
-import { CartContext } from "../../context/cartContext"
+import { CartContext } from "../../context/CartContext.jsx"
 
 
 export const ProductCover = ({ productData }) => {
