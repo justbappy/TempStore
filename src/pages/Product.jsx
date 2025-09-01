@@ -27,7 +27,6 @@ export const Product = () => {
         <ProductDetails productDetails={productDetails.data}/>
         <ProductsHeading heading={"Explore More Products"}/>
         <ProductsWrapper productsData={moreData}/>
-        
     </>
     )
 }

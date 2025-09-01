@@ -26,7 +26,7 @@ export const CartProvider = ({ children }) => {
         setAllCartItems();
     },[cartData]);
 
-    return <CartContext.Provider value={{addToCart, cartData, cartPopUp}}>
+    return <CartContext.Provider value={{addToCart, cartData}}>
         { children }
     </CartContext.Provider>
 }
